@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sua Página Web</title>
+</head>
+<body>
+    <h1>Formulário de Entrada</h1>
+    <form id="predictionForm">
+        <label for="estado_civil">Estado Civil:</label>
+        <input type="number" id="estado_civil" name="estado_civil" required>
+
+        <label for="ordem_de_inscricao">Ordem de Inscrição:</label>
+        <input type="number" id="ordem_de_inscricao" name="ordem_de_inscricao" required>
+
+        <label for="curso">Curso:</label>
+        <input type="number" id="curso" name="curso" required>
+
+        <label for="horario_diurno_noturno">Horário (1 para diurno, 2 para noturno):</label>
+        <input type="number" id="horario_diurno_noturno" name="horario_diurno_noturno" required>
+
+        <label for="qualificacao_previa">Qualificação Prévia (1 para sim, 0 para não):</label>
+        <input type="number" id="qualificacao_previa" name="qualificacao_previa" required>
+
+        <label for="nota_obtida_na_qualificacao_anterior">Nota Obtida na Qualificação Anterior:</label>
+        <input type="number" id="nota_obtida_na_qualificacao_anterior" name="nota_obtida_na_qualificacao_anterior" required>
+
+        <label for="nacionalidade">Nacionalidade (1 para nacional, 2 para estrangeiro):</label>
+        <input type="number" id="nacionalidade" name="nacionalidade" required>
+
+        <label for="escolaridade_da_mae">Escolaridade da Mãe:</label>
+        <input type="number" id="escolaridade_da_mae" name="escolaridade_da_mae" required>
+
+        <label for="escolaridade_do_pai">Escolaridade do Pai:</label>
+        <input type="number" id="escolaridade_do_pai" name="escolaridade_do_pai" required>
+
+        <label for="ocupacao_da_mae">Ocupação da Mãe:</label>
+        <input type="number" id="ocupacao_da_mae" name="ocupacao_da_mae" required>
+
+        <label for="ocupacao_do_pai">Ocupação do Pai:</label>
+        <input type="number" id="ocupacao_do_pai" name="ocupacao_do_pai" required>
+
+        <label for="nota_de_admissao">Nota de Admissão:</label>
+        <input type="number" id="nota_de_admissao" name="nota_de_admissao" required>
+
+        <label for="necessidades_educacionais_especiais">Necessidades Educacionais Especiais (1 para sim, 0 para não):</label>
+        <input type="number" id="necessidades_educacionais_especiais" name="necessidades_educacionais_especiais" required>
+
+        <label for="devedor">Devedor (1 para sim, 0 para não):</label>
+        <input type="number" id="devedor" name="devedor" required>
+
+        <label for="mensalidade_em_dia">Mensalidade em Dia (1 para sim, 0 para não):</label>
+        <input type="number" id="mensalidade_em_dia" name="mensalidade_em_dia" required>
+
+        <label for="genero">Gênero (1 para masculino, 2 para feminino):</label>
+        <input type="number" id="genero" name="genero" required>
+
+        <label for="bolsista">Bolsista (1 para sim, 0 para não):</label>
+        <input type="number" id="bolsista" name="bolsista" required>
+
+        <label for="idade_no_momento_da_matricula">Idade no Momento da Matrícula:</label>
+        <input type="number" id="idade_no_momento_da_matricula" name="idade_no_momento_da_matricula" required>
+
+        <label for="internacional">Estudante Internacional (1 para sim, 0 para não):</label>
+        <input type="number" id="internacional" name="internacional" required>
+
+        <label for="unidades_curriculares_1_semestre_inscrito">Unidades Curriculares no 1º Semestre Inscrito:</label>
+        <input type="number" id="unidades_curriculares_1_semestre_inscrito" name="unidades_curriculares_1_semestre_inscrito" required>
+
+        <label for="unidades_curriculares_no_1_semestre_aprovado">Unidades Curriculares no 1º Semestre Aprovado:</label>
+        <input type="number" id="unidades_curriculares_no_1_semestre_aprovado" name="unidades_curriculares_no_1_semestre_aprovado" required>
+
+        <label for="unidades_curriculares_2_semestre_inscrito">Unidades Curriculares no 2º Semestre Inscrito:</label>
+        <input type="number" id="unidades_curriculares_2_semestre_inscrito" name="unidades_curriculares_2_semestre_inscrito" required>
+
+        <label for="unidades_curriculares_no_2_semestre_aprovado">Unidades Curriculares no 2º Semestre Aprovado:</label>
+        <input type="number" id="unidades_curriculares_no_2_semestre_aprovado" name="unidades_curriculares_no_2_semestre_aprovado" required>
+
+        <button type="button" onclick="enviarParaAPI()">Obter Previsão</button>
+    </form>
+
+    <div id="resultadoAPI"></div>
+
+    <script>
+        function enviarParaAPI() {
+        var estado_civil = document.getElementById('estado_civil').value;
+        var ordem_de_inscricao = document.getElementById('ordem_de_inscricao').value;
+        var curso = document.getElementById('curso').value;
+        var horario_diurno_noturno = document.getElementById('horario_diurno_noturno').value;
+        var qualificacao_previa = document.getElementById('qualificacao_previa').value;
+        var nota_obtida_na_qualificacao_anterior = document.getElementById('nota_obtida_na_qualificacao_anterior').value;
+        var nacionalidade = document.getElementById('nacionalidade').value;
+        var escolaridade_da_mae = document.getElementById('escolaridade_da_mae').value;
+        var escolaridade_do_pai = document.getElementById('escolaridade_do_pai').value;
+        var ocupacao_da_mae = document.getElementById('ocupacao_da_mae').value;
+        var ocupacao_do_pai = document.getElementById('ocupacao_do_pai').value;
+        var nota_de_admissao = document.getElementById('nota_de_admissao').value;
+        var necessidades_educacionais_especiais = document.getElementById('necessidades_educacionais_especiais').value;
+        var devedor = document.getElementById('devedor').value;
+        var mensalidade_em_dia = document.getElementById('mensalidade_em_dia').value;
+        var genero = document.getElementById('genero').value;
+        var bolsista = document.getElementById('bolsista').value;
+        var idade_no_momento_da_matricula = document.getElementById('idade_no_momento_da_matricula').value;
+        var internacional = document.getElementById('internacional').value;
+        var unidades_curriculares_1_semestre_inscrito = document.getElementById('unidades_curriculares_1_semestre_inscrito').value;
+        var unidades_curriculares_no_1_semestre_aprovado = document.getElementById('unidades_curriculares_no_1_semestre_aprovado').value;
+        var unidades_curriculares_2_semestre_inscrito = document.getElementById('unidades_curriculares_2_semestre_inscrito').value;
+        var unidades_curriculares_no_2_semestre_aprovado = document.getElementById('unidades_curriculares_no_2_semestre_aprovado').value;
+    
+        var userInput = {
+            "estado_civil": estado_civil,
+            "ordem_de_inscricao": ordem_de_inscricao,
+            "curso": curso,
+            "horario_diurno_noturno": horario_diurno_noturno,
+            "qualificacao_previa": qualificacao_previa,
+            "nota_obtida_na_qualificacao_anterior": nota_obtida_na_qualificacao_anterior,
+            "nacionalidade": nacionalidade,
+            "escolaridade_da_mae": escolaridade_da_mae,
+            "escolaridade_do_pai": escolaridade_do_pai,
+            "ocupacao_da_mae": ocupacao_da_mae,
+            "ocupacao_do_pai": ocupacao_do_pai,
+            "nota_de_admissao": nota_de_admissao,
+            "necessidades_educacionais_especiais": necessidades_educacionais_especiais,
+            "devedor": devedor,
+            "mensalidade_em_dia": mensalidade_em_dia,
+            "genero": genero,
+            "bolsista": bolsista,
+            "idade_no_momento_da_matricula": idade_no_momento_da_matricula,
+            "internacional": internacional,
+            "unidades_curriculares_1_semestre_inscrito": unidades_curriculares_1_semestre_inscrito,
+            "unidades_curriculares_no_1_semestre_aprovado": unidades_curriculares_no_1_semestre_aprovado,
+            "unidades_curriculares_2_semestre_inscrito": unidades_curriculares_2_semestre_inscrito,
+            "unidades_curriculares_no_2_semestre_aprovado": unidades_curriculares_no_2_semestre_aprovado
+        };
+    
+        var data = {
+            "Inputs": {
+                "input1": [userInput]
+            },
+            "GlobalParameters": {}
+        };
+    
+        var body = JSON.stringify(data);
+        var url = 'http://fcb6776b-47c6-4aac-ae72-7b026a528abe.northeurope.azurecontainer.io/score';
+        var apiKey = 'GxBuGvBiCnWrROVzHmAfIJjugOdxVpuQ';  // Substitua com a chave apropriada
+    
+        var headers = {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + apiKey
+        };
+    
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', url, true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.setRequestHeader('Authorization', 'Bearer ' + apiKey);
+    
+        xhr.onload = function() {
+            if (xhr.status === 200) {
+                var result = JSON.parse(xhr.responseText);
+                document.getElementById('resultadoAPI').innerText = "Resultado da API: " + JSON.stringify(result);
+            } else {
+                console.error('Erro na requisição para a API');
+            }
+        };
+    
+        xhr.send(body);
+    }
+    </script>
+    </body>
+</html>
+    
