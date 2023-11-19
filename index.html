@@ -83,6 +83,22 @@
     <div id="resultadoAPI"></div>
 
     <script>
+        const express = require('express');
+        const cors = require('cors');
+
+        const app = express();
+        
+        // Configurar CORS
+        app.use(cors());
+        
+        // Resto da sua configuração de rota e servidor aqui
+        
+        // Iniciar o servidor
+        const port = process.env.PORT || 3000;
+        app.listen(port, () => {
+            console.log(`Servidor está ouvindo na porta ${port}`);
+        });
+
         function enviarParaAPI() {
         var estado_civil = document.getElementById('estado_civil').value;
         var ordem_de_inscricao = document.getElementById('ordem_de_inscricao').value;
